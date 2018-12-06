@@ -146,14 +146,17 @@ namespace ToDoList.Models
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"UPDATE items SET description = @newDescription WHERE id = @searchId";
+      //
       // MySqlParameter searchId = new MySqlParameter();
       // searchId.ParameterName = "@searchId";
       // searchId.Value = _id;
       // cmd.Parameters.Add(searchId);
+      //
       // MySqlParameter description = new MySqlParameter();
       // description.ParameterName = "@newDescription";
       // description.Value = newDescription;
       // cmd.Parameters.Add(description);
+      // 
       cmd.Parameters.AddWithValue("@searchId", _id);
       cmd.Parameters.AddWithValue("newDescription",newDescription);
       cmd.ExecuteNonQuery();

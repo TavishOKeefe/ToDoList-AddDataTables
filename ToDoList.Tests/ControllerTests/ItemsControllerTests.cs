@@ -8,40 +8,53 @@ using System;
 
 namespace ToDoList.Tests
 {
-    // [TestClass]
-    // public class ItemControllerTest : IDisposable
-    // {
-    //     public void Dispose()
-    //     {
-    //         Item.ClearAll();
-    //     }
-    //
-    //
-    //     [TestMethod]
-    //     public void Create_ReturnsCorrectActionType_RedirectToActionResult()
-    //     {
-    //         //Arrange
-    //         ItemsController controller = new ItemsController();
-    //
-    //         //Act
-    //         IActionResult view = controller.Create("Walk the dog");
-    //
-    //         //Assert
-    //         Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
-    //     }
-    //
-    //     [TestMethod]
-    //     public void Create_RedirectsToCorrectAction_Index()
-    //     {
-    //         //Arrange
-    //         ItemsController controller = new ItemsController();
-    //         RedirectToActionResult actionResult = controller.Create("Walk the dog") as RedirectToActionResult;
-    //
-    //         //Act
-    //         string result = actionResult.ActionName;
-    //
-    //         //Assert
-    //         Assert.AreEqual(result, "Index");
-    //     }
-    // }
+    [TestClass]
+    public class ItemControllerTest : IDisposable
+    {
+        public void Dispose()
+        {
+            Item.ClearAll();
+        }
+
+        [TestMethod]
+        public void New_ReturnsCorrectActionType_ViewResult()
+        {
+            //Arrange
+            ItemsController controller = new ItemsController();
+
+            //Act
+            IActionResult view = controller.New(1);
+
+            //Assert
+            Assert.IsInstanceOfType(view, typeof(ViewResult));
+        }
+
+        [TestMethod]
+        public void Show_ReturnsCorrectActionType_ViewResult()
+        {
+          //Arrange
+          ItemsController controller = new ItemsController();
+
+          //Act
+          IActionResult view = controller.Show(1, 1);
+
+          //Assert
+          Assert.IsInstanceOfType(view, typeof(ViewResult));
+
+        }
+
+        [TestMethod]
+        public void Show_IsReturningCorrectModel_CategoryObject()
+        {
+          //Arrange
+
+
+          //Act
+
+          //Assert
+
+        }
+
+
+    }
 }
