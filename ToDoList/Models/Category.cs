@@ -26,7 +26,7 @@ namespace ToDoList.Models
           return _id;
         }
 
-        public static List<Category> GetAll()
+        public static List<Category> GetAll() //READ
           {
             List<Category> allCategories = new List<Category> {};
             MySqlConnection conn = DB.Connection();
@@ -49,7 +49,7 @@ namespace ToDoList.Models
             return allCategories;
           }
 
-        public static Category Find(int searchId)
+        public static Category Find(int searchId) //READ
         {
           MySqlConnection conn = DB.Connection();
           conn.Open();
@@ -76,7 +76,7 @@ namespace ToDoList.Models
           return newCategory;
         }
 
-        public List<Item> GetItems()
+        public List<Item> GetItems() //READ
         {
           List<Item> allCategoryItems = new List<Item>{};
           MySqlConnection conn = DB.Connection();
@@ -101,7 +101,7 @@ namespace ToDoList.Models
           return allCategoryItems;
         }
 
-        public static void ClearAll()
+        public static void ClearAll() //DELETE
         {
           MySqlConnection conn = DB.Connection();
           conn.Open();
@@ -115,7 +115,7 @@ namespace ToDoList.Models
           }
         }
 
-        public void Save()
+        public void Save() //CREATE
         {
           MySqlConnection conn = DB.Connection();
           conn.Open();
@@ -142,7 +142,7 @@ namespace ToDoList.Models
             Category newCategory = (Category) otherCategory;
             bool idEquality = this.GetId().Equals(newCategory.GetId());
             bool nameEquality = this.GetName().Equals(newCategory.GetName());
-            return nameEquality;
+            return (nameEquality && idEquality);
           }
         }
 

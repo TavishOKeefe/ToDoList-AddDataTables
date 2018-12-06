@@ -12,7 +12,7 @@ namespace ToDoList.Controllers
             // this return below is for intentionally failing the test
             // uncomment it, and comment the return View(); above to make
             // that test fail
-            //return new EmptyResult();
+            // return new EmptyResult();
         }
     }
 }
